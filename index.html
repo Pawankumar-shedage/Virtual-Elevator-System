@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elevator System Visualization</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .floor {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 10px;
+      }
+      .elevator {
+        width: 100px;
+        height: 50px;
+        background-color: #3498db;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Elevator System Visualization</h1>
+    <div class="floor">
+      <span>Floor 3</span>
+
+      <div>
+        <button onclick="requestElevator(3, true)">Up</button>
+        <button onclick="requestElevator(3, false)">Down</button>
+      </div>
+    </div>
+    <div class="floor">
+      <span>Floor 2</span>
+      <div>
+        <button onclick="requestElevator(2, true)">Up</button>
+        <button onclick="requestElevator(2, false)">Down</button>
+      </div>
+    </div>
+    <div class="floor">
+      <div><span>Floor 1</span></div>
+      <div>
+        <button onclick="requestElevator(1, true)">Up</button>
+        <button onclick="requestElevator(1, false)">Down</button>
+      </div>
+    </div>
+    <div class="floor">
+      <div><span>Ground </span></div>
+      <div>
+        <button onclick="requestElevator(0, true)">Up</button>
+        <button onclick="requestElevator(0, false)">Down</button>
+      </div>
+    </div>
+    <div class="elevator" id="elevator">Elevator</div>
+
+    <script>
+      function requestElevator(floor, isUp) {
+        // You can make an AJAX call to your backend here to handle the request
+        console.log(
+          "Requesting elevator to floor " +
+            floor +
+            " (" +
+            (isUp ? "Up" : "Down") +
+            ")"
+        );
+      }
+
+      // Example of updating elevator position (you'll need to integrate this with your backend logic)
+      function updateElevatorPosition(floor) {
+        var elevator = document.getElementById("elevator");
+        elevator.innerText = "Floor " + floor;
+      }
+
+      // Example of updating elevator position, you'll need to integrate this with your backend logic
+      // Call this function whenever the elevator moves
+      updateElevatorPosition(0); // Assuming elevator starts at ground floor
+    </script>
+  </body>
+</html>
